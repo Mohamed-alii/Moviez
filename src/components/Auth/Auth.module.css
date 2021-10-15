@@ -1,0 +1,110 @@
+.container-auth
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/cinema.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.form-container
+{
+    background-color: rgba(13, 12, 15, 0.7);
+    border-radius: 12px;
+}
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .blur {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+  }
+.header
+{
+    color:#E71C61;
+}
+.btn
+{
+    background-color:#E71C61;
+    border-color: transparent;
+    font-weight: bold;
+}
+.btn:disabled,
+.btn:disabled:hover,
+.btn[disabled]{
+  border: none;
+  background-color: #3d3d3d;
+  color: white;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.outline:focus , .outline:active , .outline:active:focus {
+    box-shadow: 0 0 0 0.25rem rgba(231, 28, 97 , 0.5); 
+}
+.btn:hover
+{
+    background: white;
+    color:#E71C61;
+    border-color: #E71C61;
+    box-shadow: 0 0 0 0.2rem rgba(231, 28, 97 , 0.3); 
+}
+.form-check-input input[type="checkbox"]:focus
+{
+    box-shadow: 0 0 0 0.25rem rgba(231, 28, 97 , 0.5); 
+}
+.form-check-input input[type='checkbox']:checked
+{
+    background-color: #E71C61;
+    border-color: transparent;
+}
+
+.line
+{
+    border: 0.5px solid #212529;;
+    width: 0;
+    margin: 0.3rem 1.4rem;
+}
+
+.register-btns
+{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.text-grey
+{
+  color: #212529;
+}
+
+.invalid 
+{
+  border: 2px solid #b40e0e;
+  background-color: #fddddd;
+}
+  
+.invalid:focus {
+  border-color: #E71C61;
+}
+  
+.error-text {
+  color: #b40e0e;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.input
+{
+  background-color: #3d3d3d;
+  border-color: transparent;
+  border-radius: 5px;
+  color: white;
+}
+.input::placeholder
+{
+    color: #C8C8C8;
+}
+

@@ -1,0 +1,14 @@
+.link
+{
+    text-decoration: none;
+    color: white;
+}
+.link:hover
+{
+    text-decoration: none;
+    color: #E71C61;
+}
+.active 
+{
+    color: #E71C61;
+}

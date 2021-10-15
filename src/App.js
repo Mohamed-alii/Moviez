@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Auth from "./components/Auth/Auth";
+import HomePage from "./pages/HomePage";
+import Profile from "./pages/ProfilePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useSelector , useDispatch } from "react-redux";
+import { Fragment } from "react";
+import MainNavigation from "./components/Navbar/MainNavigation";
+import { logout } from './store/authSlice';
+import { useLocation , useHistory } from 'react-router';
+
+export let timer;
 
 function App() {
+  const dispatch = useDispatch();
+  const browserHistory = useHistory();
+  const location = useLocation();
+  const userToken = useSelector((state) => state.auth.token);
+  const expirationRemainingTime = useSelector((state) => state.auth.expirationRemainingTime);
+  const isAuthentiactionPage = location.pathname === '/Authentication';
+
+
+  useEffect(() => {
+    if(userToken && expirationRemainingTime && expirationRemainingTime >= 60000){
+      setTimeout(() => {
+        dispatch(logout(browserHistory));
+      }, 5000);
+    }
+
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {!isAuthentiactionPage && <MainNavigation />}
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/Home" />
+        </Route>
+        <Route path="/Authentication">
+          <Auth />
+        </Route>
+        <Route path="/Home">
+          <HomePage />
+        </Route>
+        {/* profile protected */}
+        {userToken && (
+          <Route path="/Profile">
+            <Profile />
+          </Route>
+        )}
+        <Route path="*">
+          <NotFoundPage />
+        </Route>
+      </Switch>
+    </Fragment>
   );
 }
 
