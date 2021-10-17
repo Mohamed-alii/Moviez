@@ -1,27 +1,22 @@
 import React from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/authSlice";
-import { useHistory } from "react-router";
+import UserDropdown from '../UserDropdown/UserDropdown';
 
 const MainNavigation = () => {
-  const browserHistory = useHistory();
-  const dispatch = useDispatch();
-  const userIsLoggedIn = useSelector((state) => state.auth.userIsLoggedIn);
-
-  const logoutHandler = () => {
-    dispatch(logout(browserHistory));
-  };
 
   return (
     <Navbar bg="dark" expand="lg">
-      <Navbar.Brand>Movies</Navbar.Brand>
+      <Navbar.Brand>
+        <Link className={`${classes.brand} mx-2`} to='/Home'>Movies</Link>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
+      <Navbar.Collapse className='justify-content-between' id="navbarScroll">
         <Nav
-          className="mr-auto my-2 my-lg-0"
+          className="mr-auto my-2 my-lg-0 text-center"
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
@@ -42,18 +37,16 @@ const MainNavigation = () => {
         </Nav>
         <Form className="d-flex">
           <FormControl
+            className={` ${classes['search-input']} ${classes.outline} mx-2`}
             type="search"
             placeholder="Search"
-            className="mr-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-success" className={`${classes.btn} mx-2`}>Search</Button>
         </Form>
-        {userIsLoggedIn && (
-          <Button onClick={logoutHandler} variant="outline-success">
-            Logout
-          </Button>
-        )}
+
+        <UserDropdown />
+
       </Navbar.Collapse>
     </Navbar>
   );

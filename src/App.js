@@ -19,14 +19,16 @@ function App() {
   const location = useLocation();
   const userToken = useSelector((state) => state.auth.token);
   const expirationRemainingTime = useSelector((state) => state.auth.expirationRemainingTime);
-  const isAuthentiactionPage = location.pathname === '/Authentication';
+  const isAuthentiactionPage = location.pathname === '/Authentication' || location.pathname === '/authentication';
 
 
   useEffect(() => {
+    
     if(userToken && expirationRemainingTime && expirationRemainingTime >= 60000){
-      setTimeout(() => {
-        dispatch(logout(browserHistory));
-      }, 5000);
+      timer = setTimeout(() => {
+        dispatch(logout());
+        browserHistory.push('/Authentication')
+      }, expirationRemainingTime);
     }
 
   }, [])
@@ -38,7 +40,7 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/Home" />
         </Route>
-        <Route path="/Authentication">
+        <Route path="/Authentication" exact>
           <Auth />
         </Route>
         <Route path="/Home">

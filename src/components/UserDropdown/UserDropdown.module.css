@@ -1,0 +1,170 @@
+.profile-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: grey 3px solid;
+    padding: 5px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.profile-container:hover
+{
+    border-color: #E71C61;
+}
+.profile
+{
+    position: relative;
+    overflow: hidden;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0;
+}
+.profile-img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.menu
+{
+    background-color: white;
+    position: absolute;
+    top:150%;
+    right: 5%;
+    z-index: 500;
+    border-radius: 15px;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    transition: 0.5s;
+    min-width: 150px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.btn-purple
+{
+    background-color: #E71C61;
+    color: white;
+    border-color: #E71C61;
+}
+.btn-purple:hover
+{
+    background-color: white;
+    color: #E71C61;
+    border-color: #E71C61;
+}
+.menu.active
+{
+    top:105%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu::before
+{
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 18%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+.link
+{
+    text-decoration: none;
+    color: black;
+}
+.link:hover
+{
+    text-decoration: none;
+    color: #E71C61;
+}
+.menu h3
+{
+    width: 100%;
+    color: #555;
+    line-height: 1.2;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.menu ul
+{
+    padding: 0;
+}
+.menu ul li
+{
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+}
+.menu ul li:not(:first-child)
+{
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* media query */
+@media ( min-width: 360px ) {
+
+    .profile-container
+    {
+        margin: 0 auto;
+    }
+    .menu
+    {
+        right: 37%;
+    }
+
+}
+
+@media ( min-width: 480px ) {
+    .profile-container
+    {
+        margin: 0 auto;
+    }
+    .menu
+    {
+        right: 41%;
+    }
+
+}
+
+@media ( min-width: 768px ) {
+    .profile-container
+    {
+        margin: 0 auto;
+    }
+    .menu
+    {
+        right: 43%;
+    }
+
+}
+
+@media ( min-width: 992px ) {
+    .profile-container
+    {
+        margin: 0 3.5% 0 0;
+    }
+    .menu
+    {
+        right: 0%;
+    }
+
+}
+
+@media ( min-width: 1200px ) {
+
+    .menu
+    {
+        right: 1%;
+    }
+
+}

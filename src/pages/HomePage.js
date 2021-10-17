@@ -1,10 +1,13 @@
 import React from 'react'
+import classes from './HomePage.module.css';
 
 const HomePage = () => {
     return (
-        <div>
-            home
-        </div>
+        <main>
+            <div>
+                <h2>home</h2>
+            </div>
+        </main>
     )
 }
 

@@ -36,7 +36,7 @@ const retrieveStoredToken = () => {
 const initialState = {
   userIsLoggedIn: retrieveStoredToken() ? true : false,
   username: "",
-  email: "",
+  email: localStorage.getItem('email') ?  localStorage.getItem('email') : '',
   error: null,
   isLoading: false,
   token: retrieveStoredToken() ? retrieveStoredToken().token : null,
@@ -59,7 +59,7 @@ export const authSlice = createSlice({
       const expirationDate = calculateExpirationDate(action.payload.expiresIn);
       localStorage.setItem("token", action.payload.idToken);
       localStorage.setItem("expirationDate", expirationDate);
-      calculateRemainingTime(expirationDate);
+      localStorage.setItem("email", action.payload.email);
     },
     loginRequestFailed(state, action) {
       state.isLoading = false;
@@ -83,17 +83,19 @@ export const authSlice = createSlice({
       state.error = action.payload;
     },
 
-    logout(state, action) {
+    logout(state) {
       if(timer){
         clearTimeout(timer);
       }
-      const browserHistory = action.payload;
       state.token = null;
       state.userIsLoggedIn = false;
       state.email = "";
+      state.expirationRemainingTime = null;
       localStorage.removeItem("expirationDate");
       localStorage.removeItem("token");
-      browserHistory.push("/Authentication");
+
+      //const browserHistory = action.payload;
+      //browserHistory.push("/Authentication");
     },
   },
 });
