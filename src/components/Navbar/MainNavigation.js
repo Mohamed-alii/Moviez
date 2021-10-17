@@ -13,7 +13,7 @@ const MainNavigation = () => {
       <Navbar.Brand>
         <Link className={`${classes.brand} mx-2`} to='/Home'>Movies</Link>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Toggle className={classes['toggle-btn']} aria-controls="navbarScroll" />
       <Navbar.Collapse className='justify-content-between' id="navbarScroll">
         <Nav
           className="mr-auto my-2 my-lg-0 text-center"
@@ -35,9 +35,9 @@ const MainNavigation = () => {
             Profile
           </NavLink>
         </Nav>
-        <Form className="d-flex">
+        <Form className="d-flex justify-content-center mb-md-2 mb-lg-0">
           <FormControl
-            className={` ${classes['search-input']} ${classes.outline} mx-2`}
+            className={` ${classes['search-input']} ${classes.outline} mx-2 `}
             type="search"
             placeholder="Search"
             aria-label="Search"

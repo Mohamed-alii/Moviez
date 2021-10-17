@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import defaultUserImg from "../../assets/user.png";
 
 const UserDropdown = () => {
-  const [userDropdownIsActive, setUserDropdownIsActive] = useState(true);
+  const [userDropdownIsActive, setUserDropdownIsActive] = useState(false);
   const browserHistory = useHistory();
   const dispatch = useDispatch();
   const userAuthenticationData = useSelector((state) => state.auth);

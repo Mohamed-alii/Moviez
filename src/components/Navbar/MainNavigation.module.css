@@ -4,6 +4,12 @@
     color: #E71C61;
     font-weight: 800;
 }
+.toggle-btn:focus,
+.toggle-btn:active
+{
+    border-color: #E71C61;
+    box-shadow: none;
+}
 .link
 {
     text-decoration: none;
@@ -23,6 +29,7 @@
 {
     border-radius: 50px;
     border-color: transparent;
+    max-width: 300px;
 }
 
 .outline:focus , .outline:active , .outline:active:focus {
