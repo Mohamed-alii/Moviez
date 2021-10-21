@@ -5,7 +5,7 @@ import {
   registerRequestSuccess,
 } from "../store/authSlice";
 
-const registrationUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_MOVIES_API_KEY}`; //sign up
+const registrationUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_AUTHENTICATION_KEY}`; //sign up
 
 const registertionHttp = (registrationData) => {
   return fetch(registrationUrl, {

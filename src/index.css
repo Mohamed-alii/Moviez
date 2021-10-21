@@ -1,4 +1,10 @@
+
 .text-grey
 {
     color: #212529;
 }
+a:hover
+{
+    color: #E71C61;
+}
+

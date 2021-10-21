@@ -1,0 +1,31 @@
+.arrow-left {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: -2.4rem;
+    right: 3.8rem;
+    font-size: 1.4rem;
+    color: #45505b;
+    transition: all 0.3s;
+}
+
+.arrow-right {
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    top: -2.4rem;
+    right: 1.6rem;
+    font-size: 1.4rem;
+    color: #45505b;
+    transition: all 0.3s;
+}
+
+.arrow-right:hover:not(.arrow-right:disabled) , .arrow-left:hover:not(.arrow-left:disabled) 
+{
+    color: #E71C61;
+}
+
+.arrow-right:disabled , .arrow-left:disabled
+{
+    color: rgb(158, 158, 158);
+}

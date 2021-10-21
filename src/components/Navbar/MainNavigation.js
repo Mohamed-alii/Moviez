@@ -9,7 +9,7 @@ import UserDropdown from '../UserDropdown/UserDropdown';
 const MainNavigation = () => {
 
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="dark" expand="lg" fixed='top'>
       <Navbar.Brand>
         <Link className={`${classes.brand} mx-2`} to='/Home'>Movies</Link>
       </Navbar.Brand>

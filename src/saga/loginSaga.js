@@ -5,7 +5,7 @@ import {
   loginRequestSuccess,
 } from "../store/authSlice";
 
-const apiUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_MOVIES_API_KEY}`; // login
+const apiUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_AUTHENTICATION_KEY}`; // login
 
 const loginHttp = (loginData) => {
   return fetch(apiUrl, {
