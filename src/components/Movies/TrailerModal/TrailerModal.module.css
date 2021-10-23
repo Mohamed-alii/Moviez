@@ -1,0 +1,17 @@
+.trailer-video {
+    height: 70vh;
+    width: 100%;
+}
+
+.modal-content-error
+{
+    height: 50vh;
+    background: black;
+}
+
+@media (min-width: 768px) {
+    .trailer-video {
+        height: 80vh;
+        width: 100%;
+    }
+}

@@ -8,7 +8,7 @@ const CarouselComponent = (props) => {
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2 },
     { width: 768, itemsToShow: 3 },
-    { width: 900, itemsToShow: 4 },
+    { width: 992, itemsToShow: 4 },
   ];
 
   const myArrow = ({ type, onClick, isEdge }) => {

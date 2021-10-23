@@ -60,8 +60,8 @@ export const moviesSlice = createSlice({
     homePageDataFailed(state, action) {
       switch (action.payload.type) {
         case "trendingMovies":
-            state.trendingMoviesError = action.payload.error;
-            break;
+          state.trendingMoviesError = action.payload.error;
+          break;
 
         case "nowPlaying":
           state.nowPlayingMoviesError = action.payload.error;
@@ -94,7 +94,10 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { intiateHomePageData, homePageDataSucceed, homePageDataFailed } =
-  moviesSlice.actions;
+export const {
+  intiateHomePageData,
+  homePageDataSucceed,
+  homePageDataFailed,
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;

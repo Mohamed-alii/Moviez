@@ -5,24 +5,28 @@ import Movie from "../components/Movies/Movie/Movie";
 import CarouselContainer from "../components/UI/CarouselContainer";
 import { useSelector, useDispatch } from "react-redux";
 import { intiateHomePageData } from "../store/moviesSlice";
+import Card from '../components/UI/Card'
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const homePageData = useSelector((state) => state.moviesData);
 
   useEffect(() => {
+    // this action will trigger many api requests via redux saga to get all the home page data we need
     dispatch(intiateHomePageData());
   }, []);
+
   // trending movies list
   const trendingMoviesList =
     homePageData.trendingMovies &&
     homePageData.trendingMovies.map((movie) => (
-      <Movie
-        title={movie.title}
-        img={movie.poster_path}
-        key={movie.id}
-        type="movie"
-      />
+        <Movie
+          title={movie.title}
+          img={movie.poster_path}
+          key={movie.id}
+          type="movie"
+          id={movie.id}
+        />
     ));
   // nowPlaying movies list
   const nowPlayingMoviesList =
@@ -33,6 +37,7 @@ const HomePage = () => {
         img={movie.poster_path}
         key={movie.id}
         type="movie"
+        id={movie.id}
       />
     ));
   // top rated movies list
@@ -44,6 +49,7 @@ const HomePage = () => {
         img={movie.poster_path}
         key={movie.id}
         type="movie"
+        id={movie.id}
       />
     ));
   // popular movies list
@@ -55,6 +61,7 @@ const HomePage = () => {
         img={movie.poster_path}
         key={movie.id}
         type="movie"
+        id={movie.id}
       />
     ));
   // up coming  movies list
@@ -66,6 +73,7 @@ const HomePage = () => {
         img={movie.poster_path}
         key={movie.id}
         type="movie"
+        id={movie.id}
       />
     ));
   // top rated tv series list
@@ -73,10 +81,11 @@ const HomePage = () => {
     homePageData.topRatedTv &&
     homePageData.topRatedTv.map((movie) => (
       <Movie
-        title={movie.title}
+        title={movie.name}
         img={movie.poster_path}
         key={movie.id}
-        type="series"
+        type="tv"
+        id={movie.id}
       />
     ));
   // trending tv series list
@@ -84,10 +93,11 @@ const HomePage = () => {
     homePageData.trendingTv &&
     homePageData.trendingTv.map((movie) => (
       <Movie
-        title={movie.title}
+        title={movie.name}
         img={movie.poster_path}
         key={movie.id}
-        type="series"
+        type="tv"
+        id={movie.id}
       />
     ));
 
