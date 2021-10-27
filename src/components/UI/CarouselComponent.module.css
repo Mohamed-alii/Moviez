@@ -5,7 +5,7 @@
     top: -2.4rem;
     right: 3.8rem;
     font-size: 1.4rem;
-    color: #45505b;
+    color: rgb(158, 158, 158);
     transition: all 0.3s;
 }
 
@@ -16,7 +16,7 @@
     top: -2.4rem;
     right: 1.6rem;
     font-size: 1.4rem;
-    color: #45505b;
+    color: rgb(158, 158, 158);
     transition: all 0.3s;
 }
 
@@ -27,5 +27,5 @@
 
 .arrow-right:disabled , .arrow-left:disabled
 {
-    color: rgb(158, 158, 158);
+    color: #45505b;
 }

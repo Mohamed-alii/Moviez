@@ -77,6 +77,7 @@ export const authSlice = createSlice({
       const remainingTime = calculateRemainingTime(action.payload.expiresIn);
       localStorage.setItem("token", action.payload.idToken);
       localStorage.setItem("expirationDate", remainingTime);
+      localStorage.setItem("email", action.payload.email);
     },
     registerRequestFailed(state, action) {
       state.isLoading = false;
@@ -91,6 +92,7 @@ export const authSlice = createSlice({
       state.userIsLoggedIn = false;
       state.email = "";
       state.expirationRemainingTime = null;
+      localStorage.removeItem("email");
       localStorage.removeItem("expirationDate");
       localStorage.removeItem("token");
 

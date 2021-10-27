@@ -15,6 +15,8 @@ const initialState = {
   trendingTvError: null,
   topRatedTv: null,
   topRatedTvError: null,
+  movieDetals: null,// can contain movie or tv series data
+  movieDetalsError: null,
 };
 
 export const moviesSlice = createSlice({
@@ -91,6 +93,14 @@ export const moviesSlice = createSlice({
           break;
       }
     },
+    movieDetails(){},
+    movieDetailsSuccess(state, action){
+      state.movieDetals = action.payload;
+    },
+    movieDetailsFailed(state, action){
+      state.movieDetalsError = action.payload;
+    },
+
   },
 });
 
@@ -98,6 +108,9 @@ export const {
   intiateHomePageData,
   homePageDataSucceed,
   homePageDataFailed,
+  movieDetails,
+  movieDetailsSuccess,
+  movieDetailsFailed
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

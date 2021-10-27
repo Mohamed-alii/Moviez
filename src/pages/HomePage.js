@@ -1,19 +1,30 @@
-import React, { useEffect, useState } from "react";
-import classes from "./HomePage.module.css";
-import { getTrendingMoviesRequest } from "../api/moviesAPI";
+import React, { useEffect } from "react";
 import Movie from "../components/Movies/Movie/Movie";
 import CarouselContainer from "../components/UI/CarouselContainer";
 import { useSelector, useDispatch } from "react-redux";
-import { intiateHomePageData } from "../store/moviesSlice";
-import Card from '../components/UI/Card'
+import { db } from "../firebase";
+import { storeUserData } from '../store/userDataSlice';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const homePageData = useSelector((state) => state.moviesData);
-
+  const userEmail = useSelector((state) => state.auth.email);
+  
   useEffect(() => {
-    // this action will trigger many api requests via redux saga to get all the home page data we need
-    dispatch(intiateHomePageData());
+    //we get the user favourates data from fire base and store them in the store
+    const ref = db.collection('users');
+    ref.onSnapshot((querySnapShot) => {
+
+      querySnapShot.forEach((doc) => {
+        if (doc.id === userEmail) {
+          // here we only get the data of our exact username
+          let userData;
+          userData = doc.data();
+          dispatch(storeUserData(userData))
+        }
+      });
+    });
+
   }, []);
 
   // trending movies list
@@ -103,25 +114,25 @@ const HomePage = () => {
 
   return (
     <main className="container mt-5">
-      <CarouselContainer header="Trending movies">
+      <CarouselContainer to='/trendingMovies' header="Trending movies">
         {trendingMoviesList}
       </CarouselContainer>
-      <CarouselContainer header="Trending series">
+      <CarouselContainer to='/trendingSeries' header="Trending series">
         {trendingTvSeriesList}
       </CarouselContainer>
-      <CarouselContainer header="Top rated movies">
+      <CarouselContainer to='/topRatedMovies' header="Top rated movies">
         {topRatedMoviesList}
       </CarouselContainer>
-      <CarouselContainer header="Top rated series">
+      <CarouselContainer to='/topRatedSeries' header="Top rated series">
         {topRatedTVSeriesList}
       </CarouselContainer>
-      <CarouselContainer header="Popular movies">
+      <CarouselContainer to='/popularMovies' header="Popular movies">
         {popularMoviesList}
       </CarouselContainer>
-      <CarouselContainer header="Now playing movies">
+      <CarouselContainer to='/nowPlayingMovies' header="Now playing movies">
         {nowPlayingMoviesList}
       </CarouselContainer>
-      <CarouselContainer header="Upcoming movies">
+      <CarouselContainer to='/upcomingMovies' header="Upcoming movies">
         {upcomingMoviesList}
       </CarouselContainer>
     </main>

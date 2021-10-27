@@ -1,7 +1,13 @@
 .container {
     position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
+.container:hover
+{
+    box-shadow: 0 0px 8px rgba(231, 28, 97, 1);
+}
 .movie-img-container img {
     width: 100%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -17,28 +23,47 @@
     bottom: 0;
     background-color: rgba(13, 12, 15, 0.15);
     z-index: 5;
+    border-radius: 8px;
 }
 
 .title {
     align-self: flex-end;
 }
 
-.add-btn {
+.btn {
     position: absolute;
     z-index: 7;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.5rem;
     border: none;
     display: flex;
     align-content: center;
     justify-content: center;
-    background-color: rgba(85, 85, 85, 0.5);
     transition: all 0.2s;
 }
 
-.add-btn:hover
-{
+.remove-btn {
+    top: 1rem;
+    right: 0.7rem;
+    background-color: transparent;
+    transition: all 0.2s;
+    font-size: 2.5rem;
+    color: #E71C61;
+    animation: pop 0.7s ease-in-out;
+}
+
+.remove-btn:hover {
+    border-radius: 50%;
+    transform: scale(1.2);
+}
+
+.add-btn {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    animation: pop-out 0.5s ease-in-out;
+    background-color: rgba(85, 85, 85, 0.5);
+}
+
+.add-btn:hover {
     border-radius: 50%;
     background-color: #E71C61;
 }
@@ -60,11 +85,52 @@
     width: 70%;
     background-color: #E71C61;
     color: white;
-    border: none;
+    border: solid 1px #E71C61;
+    transition: all 0.3s;
 }
 
 .trailer-btn:hover,
 .trailer-btn:active {
     background-color: #da648b;
     border: solid 1px #da648b;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1.5);
+    }
+
+    25% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    75% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pop-out {
+    0% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

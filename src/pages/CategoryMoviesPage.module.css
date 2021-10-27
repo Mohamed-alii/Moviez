@@ -1,0 +1,14 @@
+.movie-container
+{
+    position: relative;
+}
+.header
+{
+    color: white;
+}
+
+.header::selection
+{
+    color: yellow;
+    background-color: #E71C61;
+}

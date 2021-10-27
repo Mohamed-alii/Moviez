@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './CarouselContainer.module.css';
 import CarouselComponent from './CarouselComponent';
+import { Link } from 'react-router-dom';
 
 const CarouselContainer = (props) => {
     return (
         <section>
-            <h2 className={classes['carousel-header']}>{props.header}</h2>
+            <Link to={props.to} className={classes['carousel-header']}>{props.header}</Link>
             <CarouselComponent>
               {props.children}
             </CarouselComponent>

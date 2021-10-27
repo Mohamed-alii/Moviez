@@ -5,7 +5,7 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import useInput from "../../Hooks/use-input";
 import { useDispatch , useSelector } from "react-redux";
-import { loginRequest , logout, registerRequest } from "../../store/authSlice";
+import { loginRequest , registerRequest } from "../../store/authSlice";
 import { useHistory } from "react-router";
 
 const validateEmail = (inputValue) => {
@@ -25,7 +25,7 @@ const validateUsername = (inputValue) => {// at least 8 charcters , no _ or .
 const Auth = () => {
   const [isLoginForm, setIsLoginForm] = useState(true); // use for changing the view between login and registration
   const dispatch = useDispatch();
-  const browserHistory = History = useHistory();
+  const browserHistory = useHistory();
 
   const authenticationData = useSelector( state => state.auth );
 
@@ -42,7 +42,6 @@ const Auth = () => {
     hasError: emailHasError, //for styling the invalid input
     inputBlurHandler: emailInputBlurHandler,
     valueChangeHandler: emailInputChangeHandler,
-    reset: emailValueReset,
   } = useInput( validateEmail ); // here we pass our validation func
 
   const {
@@ -51,7 +50,6 @@ const Auth = () => {
     hasError: userNameHasError, //for styling the invalid input
     inputBlurHandler: userNameInputBlurHandler,
     valueChangeHandler: userNameInputChangeHandler,
-    reset: userNameValueReset,
   } = useInput( validateUsername ); // here we pass our validation func
 
   const {
@@ -60,7 +58,6 @@ const Auth = () => {
     hasError: passwordHasError, //for styling the invalid input
     inputBlurHandler: passwordInputBlurHandler,
     valueChangeHandler: passwordInputChangeHandler,
-    reset: passwordValueReset,
   } = useInput( validatePassword ); // here we pass our validation func
 
   const loginFormIsValid = emailIsValid && passwordIsValid;

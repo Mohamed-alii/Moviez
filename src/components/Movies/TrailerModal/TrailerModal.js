@@ -5,9 +5,9 @@ import classes from './TrailerModal.module.css';
 const TrailerModal = (props) => {
     if(props.videoKey.error){
         return (
-            <Modal >
+            <Modal onClose={props.onClose}>
                 <div className={`${classes['modal-content-error']} d-flex align-items-center justify-content-center`}>
-                    <h4 className='text-white'>Something went wrong , try again</h4>
+                    <h4 className='text-white'>{props.videoKey.error}</h4>
                 </div>
             </Modal>
         )

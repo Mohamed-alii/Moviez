@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/authSlice";
 import { Link } from "react-router-dom";
 import defaultUserImg from "../../assets/user.png";
+import { clearUserData } from "../../store/userDataSlice";
 
 const UserDropdown = () => {
   const [userDropdownIsActive, setUserDropdownIsActive] = useState(false);
@@ -27,6 +28,7 @@ const UserDropdown = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
+    dispatch(clearUserData())
     browserHistory.replace("/authentication");
   };
 

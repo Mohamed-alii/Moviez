@@ -1,0 +1,40 @@
+.header
+{
+
+}
+.genre
+{
+    border: solid 2px #E71C61;
+    border-radius: 15px;
+    padding: 0 0.6rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.4rem;
+    vertical-align: middle;
+    width: fit-content;
+}
+.header__container
+{
+
+}
+.rate__icon
+{
+    color: #E71C61;
+    margin-top: -0.3rem;
+}
+.header__container__img
+{
+
+}
+.overview
+{
+    font-size: 0.9rem;
+}
+.header__img
+{
+    width: 100%;
+}
+
+.header__container__content
+{
+
+}

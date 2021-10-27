@@ -1,0 +1,80 @@
+.loginModal-container {
+    height: 40vh;
+    width: 90%;
+    margin: 5rem auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    animation: slide-down .5s ease-in-out;
+}
+.cancel
+{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+}
+.cancel:hover
+{
+    color: #E71C61;
+}
+
+.header
+{
+    text-align: center;
+    width: 100%;
+    flex-grow: 1;
+}
+.btns-container
+{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.btn
+{
+    padding: 0.4rem 1rem;
+    border: solid #E71C61 1px;
+    background-color: #E71C61;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+.btn:hover
+{
+    background-color: blanchedalmond;
+    color: #E71C61;
+    border: solid #E71C61 1px;
+    box-shadow: 0 0 0.2rem 0.2rem rgba(231, 28, 97 , 0.3); 
+}
+@media (min-width:  768px) {
+    .loginModal-container {
+        width: 70%;
+    }
+}
+
+@media (min-width:  992px) {
+    .loginModal-container {
+        width: 50%;
+    }
+}
+
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

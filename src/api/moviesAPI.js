@@ -47,8 +47,8 @@ export const getMovieImgsRequest = (movieId) => {
     return resolve( axios.get(`https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
-export const getMovieDetailsRequest = (movieId) => {
-    return resolve( axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
+export const getMovieDetailsRequest = (type, movieId) => {// type = movie or tv 
+    return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
 export const getMovieVideos = (movieId , type) => {

@@ -2,8 +2,6 @@ import React from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../store/authSlice";
 import UserDropdown from '../UserDropdown/UserDropdown';
 
 const MainNavigation = () => {

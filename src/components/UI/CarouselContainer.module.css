@@ -3,5 +3,12 @@
     position: relative;
     top: 2.5rem;
     left: 1rem;
-    color: black;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
+.carousel-header::selection
+{
+    color: yellow;
+    background-color: #E71C61;
 }
