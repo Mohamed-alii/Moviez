@@ -12,4 +12,31 @@ body
     background-color: #111111;
 }
 
+button
+{
+    outline: none;
+}
 
+.header-underline::after
+{
+    content: '';
+    height: 2px;
+    background-color: #E71C61;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0.3rem;
+}
+
+.header-underline
+{
+    display: inline-block;
+}
+
+.horizontal-line
+{
+    width: 70%;
+    height: 2px;
+    background-color: #E71C61;
+    margin: 1rem auto;
+}

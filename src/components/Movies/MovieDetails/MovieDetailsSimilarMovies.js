@@ -47,8 +47,9 @@ const MovieDetailsSimilarMovies = ({ contentDetails, type }) => {
 
   return (
     <section className='col-12 '>
+        <div className='horizontal-line'></div>
       <header>
-        <h3 className={classes.header}>
+        <h3 className={`${classes.header} `}>
           Similar {type === "movie" ? "movie" : "tv series"}
         </h3>
       </header>

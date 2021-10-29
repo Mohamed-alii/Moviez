@@ -4,6 +4,8 @@
   width: 80%;
   z-index: 110;
   overflow: hidden;
+  height: 70vh;
+  top: 15vh;
 }
 
 @media (min-width: 992px) {
@@ -14,3 +16,8 @@
   }
 }
 
+@media (max-width: 576px) {
+  .modal-content {
+    top: 10rem;
+  }
+}

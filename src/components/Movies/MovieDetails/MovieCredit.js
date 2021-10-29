@@ -43,8 +43,9 @@ const MovieCredit = ({ contentDetails, type }) => {
 
   return (
     <section className="mb-3 col-12">
+        <div className='horizontal-line'></div>
       <header>
-        <h3 className={classes.header}>Top cast</h3>
+        <h3 className={`${classes.header} `}>Top cast</h3>
       </header>
       <div className="row px-3">{movieCreditList}</div>
     </section>
