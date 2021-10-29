@@ -20,3 +20,19 @@
 {
     width: 100%;    
 }
+
+@media (max-width:  576px) {
+    .cast-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+    .font
+    {
+        font-size: 0.7rem
+    }
+    .font p 
+    {
+        font-size: 0.8rem
+    }
+}

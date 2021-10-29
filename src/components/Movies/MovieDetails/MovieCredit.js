@@ -28,7 +28,7 @@ const MovieCredit = ({ contentDetails, type }) => {
     movieCredit &&
     movieCredit.map((castMember) => (
       <div key={castMember.id}
-        className={`col-sm-6 col-md-4 col-lg-3  d-flex  flex-column text-center `}
+        className={`${classes.font} col-6 col-sm-6 col-md-4 col-lg-3  d-flex  flex-column text-center `}
       >
         <figure className={`${classes["cast-img"]} mx-auto`}>
           <img
