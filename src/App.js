@@ -14,7 +14,7 @@ import { useLocation, useHistory } from "react-router";
 import { db } from "./firebase";
 import { storeUserData, clearUserData } from "./store/userDataSlice";
 import { intiateHomePageData } from "./store/moviesSlice";
-import MovieDetails from "./components/MovieDetails/MovieDetails";
+import MovieDetails from "./components/Movies/MovieDetails/MovieDetails";
 
 export let timer;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MovieDetailsHeader.module.css";
-import { imgPrefix } from "../../api/moviesAPI";
+import { imgPrefix } from '../../../api/moviesAPI';
 import { BsFillStarFill } from "react-icons/bs";
 
 const MovieDetailsHeader = ({ contentDetails, type }) => {
@@ -38,7 +38,7 @@ const MovieDetailsHeader = ({ contentDetails, type }) => {
         <div
           className={`${classes["header__container__content"]} col-sm-12 col-md-12 col-lg-12 col-xl-6`}
         >
-          <h3 className="mt-md-0 mt-3 text-sm-center text-md-start">
+          <h3 className={`${classes['header__title']} mt-md-0 mt-3 text-sm-center text-md-start`}>
             {contentDetails.original_title || contentDetails.name}
           </h3>
           {/* checking if the original name is different from title then show it */}

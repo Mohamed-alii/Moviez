@@ -1,0 +1,39 @@
+.header
+{
+    margin-bottom: -2rem;
+}
+.header::selection
+{
+    color: yellow;
+    background-color: #E71C61;
+}
+
+.arrow-left {
+    background-color: transparent;
+    border: none;
+    font-size: 1.7rem;
+    color: rgb(158, 158, 158);
+    transition: all 0.3s;
+    height: fit-content;
+    align-self: center;
+}
+
+.arrow-right {
+    background-color: transparent;
+    border: none;
+    font-size: 1.7rem;
+    color: rgb(158, 158, 158);
+    transition: all 0.3s;
+    align-self: center;
+    height: fit-content;
+}
+
+.arrow-right:hover:not(.arrow-right:disabled) , .arrow-left:hover:not(.arrow-left:disabled) 
+{
+    color: #E71C61;
+}
+
+.arrow-right:disabled , .arrow-left:disabled
+{
+    color: #45505b;
+}

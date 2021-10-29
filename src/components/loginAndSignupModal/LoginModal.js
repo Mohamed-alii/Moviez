@@ -11,13 +11,9 @@ const LoginModal = (props) => {
         history.push('/Authentication');
     }
 
-    const noHideHandler = (e) => {
-      e.stopPropagation()
-    }
-
   return (
-    <Modal onClose={props.onClose} onClick={noHideHandler}>
-      <div className={classes["loginModal-container"]} onClick={noHideHandler}>
+    <Modal onClose={props.onClose}>
+      <div className={classes["loginModal-container"]} >
           <button onClick={props.onClose} className={classes.cancel}>
               <ImCancelCircle />
           </button>

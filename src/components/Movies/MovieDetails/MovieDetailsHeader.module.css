@@ -1,6 +1,12 @@
-.header
-{
 
+.header__title
+{
+    color: #E71C61;
+}
+.header__title::selection
+{
+    color: yellow;
+    background-color: #E71C61;
 }
 .genre
 {
@@ -12,19 +18,13 @@
     vertical-align: middle;
     width: fit-content;
 }
-.header__container
-{
 
-}
 .rate__icon
 {
     color: #E71C61;
     margin-top: -0.3rem;
 }
-.header__container__img
-{
 
-}
 .overview
 {
     font-size: 0.9rem;
@@ -34,7 +34,3 @@
     width: 100%;
 }
 
-.header__container__content
-{
-
-}

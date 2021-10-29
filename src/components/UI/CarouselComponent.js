@@ -27,7 +27,7 @@ const CarouselComponent = (props) => {
     <Carousel
       className = {`${props.className ? props.className : ''} position-relative mt-5`}
       itemPadding = {[10, 10]}
-      breakPoints = {breakPoints}
+      breakPoints = {props.breakPoints ? props.breakPoints : breakPoints}
       pagination = {false}
       renderArrow = {myArrow}
     >

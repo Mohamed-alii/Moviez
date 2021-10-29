@@ -1,0 +1,22 @@
+.header
+{
+    margin-bottom: 1.7rem;
+}
+.header::selection
+{
+    color: yellow;
+    background-color: #E71C61;
+}
+.cast-img
+{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0;
+    /* border: solid #E71C61 2px; */
+}
+.cast-img img
+{
+    width: 100%;    
+}

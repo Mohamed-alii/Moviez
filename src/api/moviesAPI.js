@@ -35,22 +35,22 @@ export const getUpcomingMoviesRequest = () => {
     return resolve( axios.get(upcomingMoviesUrl).then( response => response) );
 }
 
-export const getSimilarMoviesRequest = (movieId) => {
-    return resolve( axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
+export const getSimilarMoviesRequest = (type ,movieId) => {
+    return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/similar?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
-export const getMovieVideosRequest = (movieId) => {
-    return resolve( axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
+export const getMovieVideos = (type, movieId) => {
+    return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/videos?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
-export const getMovieImgsRequest = (movieId) => {
-    return resolve( axios.get(`https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
+export const getMovieImgsRequest = (type, movieId) => {
+    return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/images?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
 export const getMovieDetailsRequest = (type, movieId) => {// type = movie or tv 
     return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
-export const getMovieVideos = (movieId , type) => {
-    return resolve(axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/videos?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then(response => response) );
+export const getMovieCreditRequest = (type, movieId) => {
+    return resolve(axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/credits?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then(response => response) );
 }

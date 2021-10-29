@@ -7,7 +7,7 @@ const CarouselContainer = (props) => {
     return (
         <section>
             <Link to={props.to} className={classes['carousel-header']}>{props.header}</Link>
-            <CarouselComponent>
+            <CarouselComponent breakPoints={props.breakPoints}>
               {props.children}
             </CarouselComponent>
         </section>
