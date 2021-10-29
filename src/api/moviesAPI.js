@@ -39,7 +39,7 @@ export const getSimilarMoviesRequest = (type ,movieId) => {
     return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/similar?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
-export const getMovieVideos = (type, movieId) => {
+export const getMovieVideos = (movieId, type) => {
     return resolve( axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/videos?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then( response => response) );
 }
 
