@@ -52,7 +52,7 @@
     margin-right: 2rem;
     position: relative;
     overflow: hidden;
-    width: 30%;
+    width: 50%;
 }
 
 .btn-add span {
@@ -107,5 +107,12 @@
 .btn-remove:hover {
     background-color: rgb(248, 41, 41);
     border-color: rgb(250, 53, 53);
+}
+
+@media (min-width: 768px) {
+    .btn-add
+    {
+        width: 30%;
+    }
 }
 
