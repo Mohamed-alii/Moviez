@@ -167,7 +167,7 @@ const MovieDetailsHeader = ({ contentDetails, type }) => {
               <button
                 className={`${classes["btn-add"]} ${classes["btns"]}`}
                 onClick={addToFavouritesHandler}
-                data-hover='add to favourite'
+                data-hover=' add to favourite '
               >
                 <span><BsHeartFill /></span>
               </button>

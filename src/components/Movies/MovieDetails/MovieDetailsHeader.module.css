@@ -49,10 +49,10 @@
 
 .btn-add {
     background-color: #E71C61;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     position: relative;
     overflow: hidden;
-    width: 40%;
+    width: 44%;
 }
 
 .btn-add span {
@@ -93,12 +93,14 @@
 
 .btn-watch {
     background-color: white;
-    color: #E71C61;    
+    color: #E71C61;
 }
+
 .btn-add:hover {
     background-color: white;
     color: #E71C61;
 }
+
 .btn-watch:hover {
     background-color: #E71C61;
     color: white;
@@ -110,9 +112,8 @@
 }
 
 @media (min-width: 768px) {
-    .btn-add
-    {
+    .btn-add {
         width: 30%;
+        margin-right: 2rem;
     }
 }
-
