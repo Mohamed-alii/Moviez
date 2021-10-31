@@ -8,7 +8,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter >
       <Provider store={store}>
         <App />
       </Provider>

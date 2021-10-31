@@ -8,12 +8,42 @@
 {
     box-shadow: 0 0px 8px rgba(231, 28, 97, 1);
 }
+
+.container:hover .movie__title__container
+{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container:hover .movie__title
+{
+    color: white;
+}
+.movie__title__container
+{
+    position: absolute;
+    z-index: 5;
+    display: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ;
+}
+.movie__title{
+    color: transparent;
+    transition: all 0.3s ;
+    text-align: center;
+}
 .movie-img-container img {
     width: 100%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }
-
 .overlay {
     display: flex;
     position: absolute;

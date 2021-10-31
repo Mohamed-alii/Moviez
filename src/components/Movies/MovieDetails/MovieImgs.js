@@ -83,6 +83,7 @@ const MovieImgs = ({ contentDetails, type }) => {
             pagination={false}
             renderArrow={myArrow}
             initialActiveIndex={caroselIntialItemIndex}
+            key={5}
           >
             {imagesList}
           </Carousel>

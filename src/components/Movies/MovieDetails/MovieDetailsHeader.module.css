@@ -1,15 +1,13 @@
-
-.header__title
-{
+.header__title {
     color: #E71C61;
 }
-.header__title::selection
-{
+
+.header__title::selection {
     color: yellow;
     background-color: #E71C61;
 }
-.genre
-{
+
+.genre {
     border: solid 2px #E71C61;
     border-radius: 15px;
     padding: 0 0.6rem;
@@ -19,18 +17,95 @@
     width: fit-content;
 }
 
-.rate__icon
-{
+.rate__icon {
     color: #E71C61;
     margin-top: -0.3rem;
 }
 
-.overview
-{
+.overview {
     font-size: 0.9rem;
 }
-.header__img
-{
+
+.header__img {
     width: 100%;
+}
+
+.btns {
+    padding: 0.4rem 0.9rem;
+    color: white;
+    border: solid 1px #E71C61;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: 0.5s;
+    height: 100%;
+}
+
+.btn-remove {
+    background-color: red;
+    border-color: red;
+    margin-right: 2rem;
+    width: fit-content;
+}
+
+.btn-add {
+    background-color: #E71C61;
+    margin-right: 2rem;
+    position: relative;
+    overflow: hidden;
+    width: 30%;
+}
+
+.btn-add span {
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.btn-add:hover span {
+    opacity: 1;
+}
+
+.btn-add::before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 0.50em;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    text-align: center;
+    -webkit-transition: all .7s;
+    -moz-transition: all .7s;
+    -o-transition: all .7s;
+    transition: all .7s;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.btn-add:hover::before {
+    -webkit-transform: translate(150%, 0);
+    -moz-transform: translate(150%, 0);
+    -ms-transform: translate(150%, 0);
+    -o-transform: translate(150%, 0);
+    transform: translate(150%, 0);
+}
+
+.btn-watch {
+    background-color: white;
+    color: #E71C61;    
+}
+.btn-add:hover {
+    background-color: white;
+    color: #E71C61;
+}
+.btn-watch:hover {
+    background-color: #E71C61;
+    color: white;
+}
+
+.btn-remove:hover {
+    background-color: rgb(248, 41, 41);
+    border-color: rgb(250, 53, 53);
 }
 

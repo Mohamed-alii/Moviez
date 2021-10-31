@@ -5,13 +5,12 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { MdFavorite } from "react-icons/md";
 import TrailerModal from "../TrailerModal/TrailerModal";
 import LoginModal from "../../loginAndSignupModal/LoginModal";
-import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { addToFavourites, removeFromFavourites } from "../../../api/favouritesFirebase";
 
 const Movie = ({ title, img, type, id, className }) => {
-  const [TrailerModalIsActive, setTrailerModalIsActive] = useState(false);
-  const [trailerKeyData, setTrailerKeyData] = useState(null);
+  const [trailerModalIsActive, setTrailerModalIsActive] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
   const [loginModalIsActive, setLoginModalIsActive] = useState(false);
   const history = useHistory();
@@ -41,27 +40,10 @@ const Movie = ({ title, img, type, id, className }) => {
   const addToFavouritesHandler = (event) => {
     event.stopPropagation();
     //check if the user is loggged in first
-    //if not redirct him to login page
+    //if not show login modal
     if (userToken) {
-      if (type === "movie" && !isFavourite) {
-        // first we check if the movie is already added before to favourates or not
-        db.collection("users")
-          .doc(userEmail)
-          .set({
-            favourateMovies: [...favourateMovies, currentMovie],
-            favourateTv: [...favourateTv],
-          });
-        setIsFavourite(true);
-      } else if (type === "tv" && !isFavourite) {
-        // tv series
-        db.collection("users")
-          .doc(userEmail)
-          .set({
-            favourateMovies: [...favourateMovies],
-            favourateTv: [...favourateTv, currentMovie]
-          });
-        setIsFavourite(true);
-      }
+      addToFavourites(type, userEmail, favourateMovies, favourateTv, currentMovie);
+      setIsFavourite(true);
     } else {
       //  show modal
       setLoginModalIsActive(true);
@@ -70,52 +52,12 @@ const Movie = ({ title, img, type, id, className }) => {
 
   const removeFromFavouritesHandler = (event) => {
     event.stopPropagation();
-    if (type === "movie") {
-      const updatedFavouriteMovies = favourateMovies.filter(
-        (movie) => movie.id !== id
-      );
-      db.collection("users")
-        .doc(userEmail)
-        .set({
-          favourateMovies: [...updatedFavouriteMovies],
-          favourateTv: [...favourateTv],
-        });
-    } else {
-      const updatedFavouriteTv = favourateTv.filter(
-        (tvSeries) => tvSeries.id !== id
-      );
-      db.collection("users")
-        .doc(userEmail)
-        .set({
-          favourateMovies: [...favourateMovies],
-          favourateTv: [...updatedFavouriteTv],
-        });
-    }
-
+    removeFromFavourites(type, userEmail, favourateMovies, favourateTv, id);
     setIsFavourite(false);
   };
 
   const watchTrailerHandler = async (event) => {
     event.stopPropagation();
-    const trailerkeyResponse = await getMovieVideos(id, type); // type = movie or tv
-    if (trailerkeyResponse.data) {
-      // sometimes api returns empty array so we should give show the user that there is no trailer for this
-      if (trailerkeyResponse.data.data.results.length !== 0) {
-        // the data is an array of video so we get the first one
-        let trailerVideoKey = trailerkeyResponse.data.data.results[0].key;
-        setTrailerKeyData({ data: trailerVideoKey, error: null });
-      } else {
-        // array = 0 = no trailer for this movie
-        setTrailerKeyData({
-          data: null,
-          error: "Sorry no trailer available for this",
-        });
-      }
-    } else {
-      console.log(trailerkeyResponse.data);
-      let trailerVideoKeyError = trailerkeyResponse.error.message;
-      setTrailerKeyData({ data: null, error: trailerVideoKeyError });
-    }
     setTrailerModalIsActive(true);
   };
 
@@ -131,16 +73,26 @@ const Movie = ({ title, img, type, id, className }) => {
   };
 
   return (
-    <div className={`${classes.container} ${className}`} onClick={redirectToMovieDetails}>
+    <div
+      className={`${classes.container} ${className}`}
+      onClick={redirectToMovieDetails}
+    >
       {/* login and registration modal */}
       {loginModalIsActive && <LoginModal onClose={hideModalHandler} />}
 
       {/* trailer modal */}
-      {TrailerModalIsActive && trailerKeyData && (
-        <TrailerModal videoKey={trailerKeyData} onClose={hideModalHandler} />
+      {trailerModalIsActive  && (
+        <TrailerModal type={type} id={id} onClose={hideModalHandler} />
       )}
+      <div className={classes["movie__title__container"]}>
+        <p className={`${classes["movie__title"]} `}>
+          {currentMovie.title}
+        </p>
+      </div>
 
-      <figure className={`${classes["movie-img-container"]} mb-0`}>
+      <figure
+        className={`${classes["movie-img-container"]} mb-0 position-relative`}
+      >
         <img src={imgPrefix + img} alt={title + "movie"} />
       </figure>
       <div className={classes.overlay}>

@@ -74,11 +74,9 @@ function App() {
         <Route path="/Home">
           <HomePage />
         </Route>
-        <Route path="/tv/:id" exact>
-          <MovieDetails />
+        <Route path="/tv/:id" exact render={(props) => <MovieDetails {...props} key={props.location.key} />} >
         </Route>
-        <Route path="/movie/:id" exact>
-          <MovieDetails />
+        <Route path="/movie/:id" exact render={(props) => <MovieDetails {...props} key={props.location.key} />} > 
         </Route>
         {/* profile protected */}
         {userToken && (
