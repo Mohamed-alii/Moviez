@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 import UserDropdown from '../UserDropdown/UserDropdown';
+import LoginModal from '../loginAndSignupModal/LoginModal';
+import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
 
 const MainNavigation = () => {
 
+  const [loginModalIsActive, setLoginModalIsActive] = useState(false);
+  const userToken = useSelector(state => state.auth.token);
+  const location = useLocation();
+
+
+  const showLoginModalHandler = () => {
+    if(!userToken){
+      setLoginModalIsActive(true);
+    }
+  }
+
+  const hideModalHandler = () => {
+    setLoginModalIsActive(false);
+  }
+
   return (
     <Navbar bg="dark" expand="lg" fixed='top'>
+            {/* login and registration modal */}
+            {loginModalIsActive && <LoginModal modalMessage='Please login first in order to access your favourites page' onClose={hideModalHandler} />}
       <Navbar.Brand>
         <Link className={`${classes.brand} mx-2`} to='/Home'>Movies</Link>
       </Navbar.Brand>
@@ -26,11 +46,12 @@ const MainNavigation = () => {
             Home
           </NavLink>
           <NavLink
-            activeClassName={classes.active}
+            activeClassName={location.pathname === '/Favourites' ? classes.active : ''}
             className={`${classes.link} px-2`}
-            to="/Profile"
+            to={!userToken ? location.pathname : '/Favourites'}
+            onClick={showLoginModalHandler}
           >
-            Profile
+            Favourites
           </NavLink>
         </Nav>
         <Form className="d-flex justify-content-center mb-md-2 mb-lg-0">

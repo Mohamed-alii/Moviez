@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Auth from "./components/Auth/Auth";
+import Auth from "./pages/Auth/Auth";
 import HomePage from "./pages/HomePage";
-import Profile from "./pages/ProfilePage";
+import UserFavourites from "./pages/UserFavourites/UserFavourites";
 import NotFoundPage from "./pages/NotFoundPage";
 import CategoryMoviesPage from "./pages/CategoryMoviesPage";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -80,11 +80,11 @@ function App() {
         </Route>
         {/* profile protected */}
         {userToken && (
-          <Route path="/Profile">
-            <Profile />
+          <Route path="/Favourites">
+            <UserFavourites />
           </Route>
         )}
-        <Route path="/:category">
+        <Route path="/category/:category">
           <CategoryMoviesPage />
         </Route>
         <Route path="*">

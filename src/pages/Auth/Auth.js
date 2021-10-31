@@ -1,8 +1,8 @@
 import React, { useState , useEffect } from "react";
 import { Form } from "react-bootstrap";
 import classes from "./Auth.module.css";
-import Card from "../UI/Card";
-import Button from "../UI/Button";
+import Card from "../../components/UI/Card";
+import Button from "../../components/UI/Button";
 import useInput from "../../Hooks/use-input";
 import { useDispatch , useSelector } from "react-redux";
 import { loginRequest , registerRequest } from "../../store/authSlice";

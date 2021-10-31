@@ -110,7 +110,7 @@ const MovieDetailsHeader = ({ contentDetails, type }) => {
     <section className={`${classes.header} col-12`}>
       <div className={`${classes["header__container"]} row`}>
         <div
-          className={`${classes["header__container__img"]} d-flex align-items-start col-sm-12 col-md-12 col-lg-4 col-xl-3 mb-3 `}
+          className={`${classes["header__container__img"]} d-flex align-items-start col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3 `}
         >
           <img
             className={classes["header__img"]}
@@ -119,7 +119,7 @@ const MovieDetailsHeader = ({ contentDetails, type }) => {
           />
         </div>
         <div
-          className={`${classes["header__container__content"]} col-sm-12 col-md-12 col-lg-8 col-xl-8 d-flex flex-column mb-3`}
+          className={`${classes["header__container__content"]} col-sm-12 col-md-12 col-lg-8 col-xl-6 d-flex flex-column mb-3`}
         >
           <h3
             className={`${classes["header__title"]} mt-md-0 mt-3 text-sm-center text-md-start`}
@@ -188,7 +188,7 @@ const MovieDetailsHeader = ({ contentDetails, type }) => {
       </div>
 
       {/* login and registration modal */}
-      {loginModalIsActive && <LoginModal onClose={hideModalHandler} />}
+      {loginModalIsActive && <LoginModal modalMessage='Please login first in order to add to your favourites' onClose={hideModalHandler} />}
       {/* trailer modal */}
       {trailerModalIsActive && (
         <TrailerModal type={type} id={contentDetails.id} onClose={hideModalHandler} />

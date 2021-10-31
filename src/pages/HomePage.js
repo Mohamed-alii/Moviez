@@ -114,25 +114,25 @@ const HomePage = () => {
 
   return (
     <main className="container mt-5">
-      <CarouselContainer to='/trendingMovies' header="Trending movies">
+      <CarouselContainer to='/category/trendingMovies' header="Trending movies">
         {trendingMoviesList}
       </CarouselContainer>
-      <CarouselContainer to='/trendingSeries' header="Trending series">
+      <CarouselContainer to='/category/trendingSeries' header="Trending series">
         {trendingTvSeriesList}
       </CarouselContainer>
-      <CarouselContainer to='/topRatedMovies' header="Top rated movies">
+      <CarouselContainer to='/category/topRatedMovies' header="Top rated movies">
         {topRatedMoviesList}
       </CarouselContainer>
-      <CarouselContainer to='/topRatedSeries' header="Top rated series">
+      <CarouselContainer to='/category/topRatedSeries' header="Top rated series">
         {topRatedTVSeriesList}
       </CarouselContainer>
-      <CarouselContainer to='/popularMovies' header="Popular movies">
+      <CarouselContainer to='/category/popularMovies' header="Popular movies">
         {popularMoviesList}
       </CarouselContainer>
-      <CarouselContainer to='/nowPlayingMovies' header="Now playing movies">
+      <CarouselContainer to='/category/nowPlayingMovies' header="Now playing movies">
         {nowPlayingMoviesList}
       </CarouselContainer>
-      <CarouselContainer to='/upcomingMovies' header="Upcoming movies">
+      <CarouselContainer to='/category/upcomingMovies' header="Upcoming movies">
         {upcomingMoviesList}
       </CarouselContainer>
     </main>

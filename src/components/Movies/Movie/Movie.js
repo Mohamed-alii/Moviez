@@ -78,7 +78,7 @@ const Movie = ({ title, img, type, id, className }) => {
       onClick={redirectToMovieDetails}
     >
       {/* login and registration modal */}
-      {loginModalIsActive && <LoginModal onClose={hideModalHandler} />}
+      {loginModalIsActive && <LoginModal modalMessage='Please login first in order to add to your favourites' onClose={hideModalHandler} />}
 
       {/* trailer modal */}
       {trailerModalIsActive  && (

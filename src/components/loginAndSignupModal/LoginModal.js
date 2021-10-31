@@ -18,7 +18,7 @@ const LoginModal = (props) => {
               <ImCancelCircle />
           </button>
         <h6 className={`${classes.header} mt-4`}>
-          Please login first in order to add to your favourites{" "}
+          {props.modalMessage}
         </h6>
         <div className={classes['btns-container']}>
           <button onClick={loginDirectHandler} className={`${classes.btn} mx-1`}>login</button>

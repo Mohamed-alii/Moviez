@@ -14,6 +14,7 @@
 {
     text-decoration: none;
     color: white;
+    font-weight: 500;
 }
 .link:hover
 {
@@ -23,7 +24,7 @@
 .active 
 {
     color: #E71C61;
-    font-weight: 600;
+    font-weight: 700;
 }
 .search-input
 {

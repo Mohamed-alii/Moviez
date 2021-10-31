@@ -117,3 +117,9 @@
         margin-right: 2rem;
     }
 }
+@media (min-width: 1200px) {
+    .btn-add {
+        width: 35%;
+        margin-right: 2rem;
+    }
+}
