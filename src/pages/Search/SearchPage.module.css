@@ -1,0 +1,16 @@
+
+.header
+{
+    color: white;
+}
+
+.header::selection
+{
+    color: yellow;
+    background-color: #E71C61;
+}
+
+.query
+{
+    color: #E71C61;
+}

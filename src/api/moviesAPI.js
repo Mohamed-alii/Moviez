@@ -54,3 +54,7 @@ export const getMovieDetailsRequest = (type, movieId) => {// type = movie or tv
 export const getMovieCreditRequest = (type, movieId) => {
     return resolve(axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/credits?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}`).then(response => response) );
 }
+
+export const getSearchResultsRequest = (searchQuery , pageNumber = 1) => {
+    return resolve(axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIES_REQUESTS_API_KEY}&query=${searchQuery}&language=en-US&page=${pageNumber}&include_adult=false`).then(response => response) );
+}

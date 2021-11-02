@@ -15,6 +15,7 @@ import { db } from "./firebase";
 import { storeUserData, clearUserData } from "./store/userDataSlice";
 import { intiateHomePageData } from "./store/moviesSlice";
 import MovieDetails from "./components/Movies/MovieDetails/MovieDetails";
+import SearchPage from "./pages/Search/SearchPage";
 
 export let timer;
 
@@ -73,6 +74,8 @@ function App() {
         </Route>
         <Route path="/Home">
           <HomePage />
+        </Route>
+        <Route path="/Search/:searchQuery" render={(props) => <SearchPage {...props} key={props.location.key} />} >
         </Route>
         <Route path="/tv/:id" exact render={(props) => <MovieDetails {...props} key={props.location.key} />} >
         </Route>

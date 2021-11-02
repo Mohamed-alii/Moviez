@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 import UserDropdown from '../UserDropdown/UserDropdown';
 import LoginModal from '../loginAndSignupModal/LoginModal';
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import { useSelector } from "react-redux";
 
 const MainNavigation = () => {
@@ -12,7 +12,17 @@ const MainNavigation = () => {
   const [loginModalIsActive, setLoginModalIsActive] = useState(false);
   const userToken = useSelector(state => state.auth.token);
   const location = useLocation();
+  const history = useHistory();
+  const searchInputRef = useRef();
+  
 
+  const searchHandler = (event) => {
+    event.preventDefault();
+    const searchQuery = searchInputRef.current.value;
+    if(searchQuery){
+      history.push(`/search/${searchQuery}`);
+    }
+  }
 
   const showLoginModalHandler = () => {
     if(!userToken){
@@ -54,14 +64,15 @@ const MainNavigation = () => {
             Favourites
           </NavLink>
         </Nav>
-        <Form className="d-flex justify-content-center mb-md-2 mb-lg-0">
+        <Form onSubmit={searchHandler} className="d-flex justify-content-center mb-md-2 mb-lg-0">
           <FormControl
             className={` ${classes['search-input']} ${classes.outline} mx-2 `}
             type="search"
             placeholder="Search"
             aria-label="Search"
+            ref={searchInputRef}
           />
-          <Button variant="outline-success" className={`${classes.btn} mx-2`}>Search</Button>
+          <Button variant="outline-success" onClick={searchHandler} className={`${classes.btn} mx-2`}>Search</Button>
         </Form>
 
         <UserDropdown />
