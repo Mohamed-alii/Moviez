@@ -21,6 +21,7 @@ const Movie = ({ title, img, type, id, className }) => {
     (state) => state.userData.favourateMovies
   );
 
+
   const currentMovie = {
     title,
     image: img,
