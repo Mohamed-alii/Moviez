@@ -66,7 +66,7 @@ const MovieCredit = ({ contentDetails, type }) => {
         <h3 className={`${classes.header} `}>Top cast</h3>
       </header>
       <div className="row px-3">{movieCreditList}</div>
-      {loadButtonIsVisible && (
+      {(loadButtonIsVisible && movieCredit && movieCredit.length > 8) && (
         <div className="d-flex justify-content-center mt-4">
           <button className="load-more" onClick={loadMoreHandler}>
             Load More
