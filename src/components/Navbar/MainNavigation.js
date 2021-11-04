@@ -45,26 +45,26 @@ const MainNavigation = () => {
       <Navbar.Collapse className='justify-content-between' id="navbarScroll">
         <Nav
           className="mr-auto my-2 my-lg-0 text-center"
-          style={{ maxHeight: "100px" }}
+          style={{ maxHeight: "1000px" }}
           navbarScroll
         >
           <NavLink
             activeClassName={classes.active}
-            className={`${classes.link} px-2`}
+            className={`${classes.link} px-2 my-2`}
             to="/Home"
           >
             Home
           </NavLink>
           <NavLink
             activeClassName={location.pathname === '/Favourites' ? classes.active : ''}
-            className={`${classes.link} px-2`}
+            className={`${classes.link} px-2 my-2`}
             to={!userToken ? location.pathname : '/Favourites'}
             onClick={showLoginModalHandler}
           >
             Favourites
           </NavLink>
         </Nav>
-        <Form onSubmit={searchHandler} className="d-flex justify-content-center mb-md-2 mb-lg-0">
+        <Form onSubmit={searchHandler} className="d-flex justify-content-center mb-md-2 my-lg-0 my-sm-3">
           <FormControl
             className={` ${classes['search-input']} ${classes.outline} mx-2 `}
             type="search"

@@ -23,7 +23,7 @@ const ScrollUp = () => {
         })
     }
 
-    window.addEventListener('scroll' , toggleVisible)
+    window.addEventListener('scroll' , toggleVisible,{ behavior: true })
 
     return (
         <button onClick={scrollUpHandler} className={`${classes.scroll_button} ${btnvisible ? classes.scroll_button_visible : classes.scroll_button_hidden}`}>

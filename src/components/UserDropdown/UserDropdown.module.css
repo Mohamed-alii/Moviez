@@ -116,7 +116,7 @@
 
     .profile-container
     {
-        margin: 0 auto;
+        margin: 0.7rem auto;
     }
     .menu
     {
@@ -128,7 +128,7 @@
 @media ( min-width: 480px ) {
     .profile-container
     {
-        margin: 0 auto;
+        margin: 0.7rem auto;
     }
     .menu
     {
@@ -140,7 +140,7 @@
 @media ( min-width: 768px ) {
     .profile-container
     {
-        margin: 0 auto;
+        margin: 0.7rem auto;
     }
     .menu
     {

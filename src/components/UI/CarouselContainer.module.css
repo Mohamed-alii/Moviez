@@ -1,5 +1,4 @@
-.carousel-header
-{
+.carousel-header {
     position: relative;
     top: 2.5rem;
     left: 1rem;
@@ -7,8 +6,15 @@
     font-size: 2rem;
     text-decoration: none;
 }
-.carousel-header::selection
-{
+
+.carousel-header::selection {
     color: yellow;
     background-color: #E71C61;
+}
+
+/*  small devices */
+@media (max-width: 576px) {
+    .carousel-header {
+        top: 1rem;
+    }
 }

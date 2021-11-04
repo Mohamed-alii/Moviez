@@ -10,7 +10,7 @@ const CategoryMoviesPage = () => {
   const [header, setHeader] = useState("");
   const [categoryData, setCategoryData] = useState([]);
   const [categoryType, setCategoryType] = useState(null); // type = movie or tv
-  const [loadButtonIsVisible, setLoadButtonIsVisible] = useState(false);
+  const [loadButtonIsVisible, setLoadButtonIsVisible] = useState(true);
   const params = useParams();
   const history = useHistory();
   const category = params.category;

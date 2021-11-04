@@ -20,12 +20,28 @@
     transition: all 0.3s;
 }
 
-.arrow-right:hover:not(.arrow-right:disabled) , .arrow-left:hover:not(.arrow-left:disabled) 
-{
+.arrow-right:hover:not(.arrow-right:disabled),
+.arrow-left:hover:not(.arrow-left:disabled) {
     color: #E71C61;
 }
 
-.arrow-right:disabled , .arrow-left:disabled
-{
+.arrow-right:disabled,
+.arrow-left:disabled {
     color: #45505b;
+}
+
+
+/*  small devices */
+@media (max-width: 576px) {
+
+    .arrow-left,
+    .arrow-right {
+        font-size: 2rem;
+        top: -3.5rem;
+    }
+
+    .arrow-left {
+        right: 4.5rem;
+
+    }
 }
