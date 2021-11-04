@@ -139,7 +139,7 @@ const Auth = () => {
             </div>
 
             {isLoginForm ? (
-              <p>Get login to access your account</p>
+              <p>Login to access your account</p>
             ) : (
               <p>Create your account now </p>
             )}

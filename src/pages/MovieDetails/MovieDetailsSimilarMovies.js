@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CarouselComponent from "../../UI/CarouselComponent";
+import CarouselComponent from "../../components/UI/CarouselComponent";
 import classes from "./MovieDetailsSimilarMovies.module.css";
-import Movie from "../Movie/Movie";
-import { getSimilarMoviesRequest } from "../../../api/moviesAPI";
+import Movie from "../../components/Movies/Movie/Movie";
+import { getSimilarMoviesRequest } from "../../api/moviesAPI";
 
 const MovieDetailsSimilarMovies = ({ contentDetails, type }) => {
   const [similarMovies, setSimilarMovies] = useState(null);
@@ -44,6 +44,12 @@ const MovieDetailsSimilarMovies = ({ contentDetails, type }) => {
     { width: 768, itemsToShow: 4 },
     { width: 992, itemsToShow: 5 },
   ];
+
+  if (similarMovies && similarMovies.length === 0) {
+    return <div></div>;
+  }
+
+  console.log(similarMovies)
 
   return (
     <section className='col-12 '>

@@ -1,0 +1,27 @@
+
+.footer
+{
+    border-top: solid 3px #E71C61;
+    background-color: #212529;
+}
+.footer_container
+{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_container div
+{
+    display: flex;
+    color: white;
+    transition: all 0.4s;
+    border-radius: 12px;
+}
+.footer_container div:hover
+{
+    color: #E71C61;
+    border-radius: 50%;
+    background-color: rgb(255, 176, 176);
+}

@@ -14,8 +14,10 @@ import { useLocation, useHistory } from "react-router";
 import { db } from "./firebase";
 import { storeUserData, clearUserData } from "./store/userDataSlice";
 import { intiateHomePageData } from "./store/moviesSlice";
-import MovieDetails from "./components/Movies/MovieDetails/MovieDetails";
+import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import SearchPage from "./pages/Search/SearchPage";
+import Footer from "./components/Footer/Footer";
+import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 export let timer;
 
@@ -94,6 +96,8 @@ function App() {
           <NotFoundPage />
         </Route>
       </Switch>
+      {!isAuthentiactionPage && <Footer />}
+      <ScrollUp />
     </Fragment>
   );
 }

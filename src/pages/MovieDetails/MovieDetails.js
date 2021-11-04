@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import MovieDetailsHeader from "./MovieDetailsHeader";
 import MovieDetailsSimilarMovies from "./MovieDetailsSimilarMovies";
-import { getMovieDetailsRequest } from "../../../api/moviesAPI";
+import { getMovieDetailsRequest } from "../../api/moviesAPI";
 import MovieImgs from "./MovieImgs";
 import MovieCredit from "./MovieCredit";
+import Loading from "../../components/UI/Loading";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -28,11 +29,7 @@ const MovieDetails = () => {
   }, []);
 
   if (!contentDetails) {
-    return (
-      <div className="text-white d-flex justify-content-center align-items-center w-100 h-100">
-        <p>loading...</p>
-      </div>
-    );
+    return <Loading />
   }
 
   return (

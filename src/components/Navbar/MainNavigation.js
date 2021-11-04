@@ -35,7 +35,7 @@ const MainNavigation = () => {
   }
 
   return (
-    <Navbar bg="dark" expand="lg" fixed='top'>
+    <Navbar bg="dark" expand="lg" fixed='top' className='py-1'>
             {/* login and registration modal */}
             {loginModalIsActive && <LoginModal modalMessage='Please login first in order to access your favourites page' onClose={hideModalHandler} />}
       <Navbar.Brand>

@@ -40,3 +40,18 @@ button:focus-visible
     background-color: #E71C61;
     margin: 1rem auto;
 }
+
+.load-more
+{
+    background-color: #E71C61;
+    border-radius: 10px;
+    border: 2px solid #E71C61;
+    color: white;
+    padding: 0.5rem;
+}
+
+.load-more:hover
+{
+    background-color: white;
+    color: #E71C61;
+}

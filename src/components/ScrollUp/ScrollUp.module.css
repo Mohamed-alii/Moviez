@@ -1,0 +1,32 @@
+.scroll_button
+{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border: none;
+    background-color: #E71C61;
+    color: white;
+    border-radius: 11px;
+    padding: 0.5rem;
+    z-index: 60;
+    transition: all 0.3s;
+    width: 50px;
+    height: 50px;
+}
+.scroll_button_visible
+{
+    display: block;
+}
+.scroll_button_hidden
+{
+    display: none;
+}
+.scroll_button svg
+{
+    font-size: 1.5rem;
+}
+.scroll_button:hover
+{
+    border-radius: 50%;
+    background-color: #eb3f78;
+}

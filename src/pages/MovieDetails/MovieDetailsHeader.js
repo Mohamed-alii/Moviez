@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import classes from "./MovieDetailsHeader.module.css";
-import { imgPrefix } from "../../../api/moviesAPI";
+import { imgPrefix } from "../../api/moviesAPI";
 import { BsFillStarFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {
   addToFavourites,
   removeFromFavourites,
-} from "../../../api/favouritesFirebase";
-import LoginModal from "../../loginAndSignupModal/LoginModal";
-import TrailerModal from "../TrailerModal/TrailerModal";
+} from "../../api/favouritesFirebase";
+import LoginModal from "../../components/loginAndSignupModal/LoginModal";
+import TrailerModal from "../../components/Movies/TrailerModal/TrailerModal";
 import { BsHeartFill } from 'react-icons/bs'
 
 const convertMovieRuntime = (runtime) => {

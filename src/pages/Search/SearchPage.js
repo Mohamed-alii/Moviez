@@ -3,25 +3,25 @@ import { useParams } from "react-router";
 import { getSearchResultsRequest } from "../../api/moviesAPI";
 import classes from "./SearchPage.module.css";
 import Movie from "../../components/Movies/Movie/Movie";
+import Loading from "../../components/UI/Loading";
 
 const SearchPage = () => {
   const params = useParams();
   const [searchResults, setSearchResults] = useState([]); // if empty array this means there are no results for this search
   const [searchResultsError, setSearchResultsError] = useState(null);
-  let requestPageNumber = -1; //this varible is made to to if we get the same results
+  const [requestsFinished, setRequestsFinished] = useState(false);
+
 
   useEffect(() => {
-    const getSearchReults = async () => {
+    const getSearchReults = async (pageNumber) => {
       const searchResponseResult = await getSearchResultsRequest(
-        params.searchQuery
+        params.searchQuery , pageNumber
       );
 
       if (
-        searchResponseResult.data &&
-        searchResponseResult.data.data.page != requestPageNumber
+        searchResponseResult.data 
       ) {
         // reponse success
-        requestPageNumber = searchResponseResult.data.data.page;
         const searchResultsData = searchResponseResult.data.data.results;
         const updatedSearchResultsData = searchResultsData.filter(
           (query) => query.media_type !== "person" && query.poster_path !== null
@@ -33,16 +33,19 @@ const SearchPage = () => {
         // error
         setSearchResultsError(searchResponseResult.error);
       }
+      if(pageNumber === 4){//after the last call we want to set requests finished to true 
+        setRequestsFinished(true);
+      }
     };
-    getSearchReults(); //20 results added every call
-    getSearchReults();
-    getSearchReults();
-    getSearchReults();
+    getSearchReults(1); //20 results added every call
+    getSearchReults(2);
+    getSearchReults(3);
+    getSearchReults(4);
   }, []);
 
   // search results list
   const searchResultsList =
-    searchResults &&
+    (searchResults.length > 0) &&
     searchResults.map((movie) => (
       <div className="col-sm-6 col-md-4 col-lg-3 mb-4" key={movie.id}>
         <Movie
@@ -54,8 +57,12 @@ const SearchPage = () => {
       </div>
     ));
 
-    return (
-    <section className="position-relative container mx-auto mt-5 pt-5">
+  if (!searchResultsList && !requestsFinished) {
+    return <Loading />
+  }
+
+  return (
+    <section className="position-relative container mx-auto mt-5 pt-5 d-flex flex-column">
       <header>
         {searchResults.length != 0 ? (
           <h2 className={`${classes.header} pb-3`}>
@@ -63,10 +70,12 @@ const SearchPage = () => {
             <span className={classes.query}>{params.searchQuery}</span>
           </h2>
         ) : (
-          <h2 className={`${classes.header} pb-3`}>
-            No results for{" "}
-            <span className={classes.query}>{params.searchQuery}</span>
-          </h2>
+          <div className={classes.no_results}>
+            <h2 className={`${classes.header} pb-3`}>
+              No results for{" "}
+              <span className={classes.query}>{params.searchQuery}</span>
+            </h2>
+          </div>
         )}
       </header>
       <div className="row">{searchResultsList}</div>

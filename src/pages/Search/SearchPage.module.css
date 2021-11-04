@@ -2,6 +2,7 @@
 .header
 {
     color: white;
+    flex-grow: 1;
 }
 
 .header::selection
@@ -13,4 +14,10 @@
 .query
 {
     color: #E71C61;
+}
+
+.no_results
+{
+    min-height: 70vh;
+    text-align: center;
 }
